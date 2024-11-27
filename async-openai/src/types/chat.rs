@@ -650,6 +650,8 @@ pub enum FinishReason {
     ToolCalls,
     ContentFilter,
     FunctionCall,
+    // Hailmery, adding anthropic stuff
+    EndTurn,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
