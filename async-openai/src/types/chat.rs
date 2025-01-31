@@ -835,6 +835,8 @@ pub enum FinishReason {
     FunctionCall,
     // Hailmery, adding anthropic stuff
     EndTurn,
+    #[serde(rename = "")]
+    EmptyString,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
