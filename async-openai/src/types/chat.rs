@@ -830,6 +830,7 @@ pub struct ChatCompletionStreamOptions {
 pub enum FinishReason {
     Stop,
     Length,
+    #[serde(alias = "tool_use")]
     ToolCalls,
     ContentFilter,
     FunctionCall,
@@ -837,6 +838,8 @@ pub enum FinishReason {
     EndTurn,
     #[serde(rename = "")]
     EmptyString,
+    #[serde(other)]
+    NotDefinedInFinishReason,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
