@@ -606,6 +606,7 @@ pub struct WebSearchOptions {
 pub enum ServiceTier {
     Auto,
     Default,
+    Flex,
 }
 
 #[derive(Clone, Serialize, Debug, Deserialize, PartialEq)]

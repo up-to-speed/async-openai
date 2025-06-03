@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(npx dotenv-cli:*)",
+      "Bash(supabase db:*)",
+      "Bash(supabase migration list:*)",
+      "Bash(git commit:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npx supabase migration:*)",
+      "Bash(npm search:*)",
+      "Bash(rg:*)",
+      "Bash(magick:*)",
+      "Bash(ls:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npm run lint:*)",
+      "Bash(grep:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run check:*)",
+      "Bash(npm update:*)",
+      "Bash(npm view:*)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:supabase.github.io)",
+      "Bash(mkdir:*)",
+      "Bash(npm run typecheck:*)",
+      "Bash(npm run:*)",
+      "Bash(tsx:*)",
+      "Bash(npx tsx:*)",
+      "Bash(/usr/bin/grep -c \"id: \\\"\" concepts/concepts.ts)",
+      "mcp__supabase__execute_sql",
+      "mcp__supabase__get_logs",
+      "mcp__supabase__list_edge_functions",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)"
+    ],
+    "deny": []
+  }
+}
