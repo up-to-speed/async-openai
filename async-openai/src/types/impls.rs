@@ -6,13 +6,15 @@ use std::{
 use crate::{
     download::{download_url, save_b64},
     error::OpenAIError,
+    traits::AsyncTryFrom,
     types::InputSource,
-    util::{create_all_dir, create_file_part, AsyncTryFrom},
+    util::{create_all_dir, create_file_part},
 };
 
 use bytes::Bytes;
 
 use super::{
+    responses::{CodeInterpreterContainer, Input, InputContent, Role as ResponsesRole},
     AddUploadPartRequest, AudioInput, AudioResponseFormat, ChatCompletionFunctionCall,
     ChatCompletionFunctions, ChatCompletionNamedToolChoice, ChatCompletionRequestAssistantMessage,
     ChatCompletionRequestAssistantMessageContent, ChatCompletionRequestDeveloperMessage,
@@ -986,3 +988,51 @@ impl AsyncTryFrom<AddUploadPartRequest> for reqwest::multipart::Form {
 }
 
 // end: types to multipart form
+
+impl Default for Input {
+    fn default() -> Self {
+        Self::Text("".to_string())
+    }
+}
+
+impl Default for InputContent {
+    fn default() -> Self {
+        Self::TextInput("".to_string())
+    }
+}
+
+impl From<String> for Input {
+    fn from(value: String) -> Self {
+        Input::Text(value)
+    }
+}
+
+impl From<&str> for Input {
+    fn from(value: &str) -> Self {
+        Input::Text(value.to_owned())
+    }
+}
+
+impl Default for ResponsesRole {
+    fn default() -> Self {
+        Self::User
+    }
+}
+
+impl From<String> for InputContent {
+    fn from(value: String) -> Self {
+        Self::TextInput(value)
+    }
+}
+
+impl From<&str> for InputContent {
+    fn from(value: &str) -> Self {
+        Self::TextInput(value.to_owned())
+    }
+}
+
+impl Default for CodeInterpreterContainer {
+    fn default() -> Self {
+        CodeInterpreterContainer::Id("".to_string())
+    }
+}

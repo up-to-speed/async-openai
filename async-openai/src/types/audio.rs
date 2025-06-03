@@ -39,10 +39,13 @@ pub enum SpeechResponseFormat {
 pub enum Voice {
     #[default]
     Alloy,
+    Ash,
+    Coral,
     Echo,
     Fable,
     Onyx,
     Nova,
+    Sage,
     Shimmer,
 }
 
@@ -185,8 +188,15 @@ pub struct CreateSpeechRequest {
     /// One of the available [TTS models](https://platform.openai.com/docs/models/tts): `tts-1` or `tts-1-hd`
     pub model: SpeechModel,
 
-    /// The voice to use when generating the audio. Supported voices are `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`. Previews of the voices are available in the [Text to speech guide](https://platform.openai.com/docs/guides/text-to-speech/voice-options).
+    /// The voice to use when generating the audio. Supported voices are `alloy`, `ash`, `coral`, `echo`, `fable`, `onyx`, `nova`, `sage`, `shimmer` and `verse`.
+
+    /// Previews of the voices are available in the [Text to speech guide](https://platform.openai.com/docs/guides/text-to-speech#voice-options).
     pub voice: Voice,
+
+    /// Control the voice of your generated audio with additional instructions.
+    /// Does not work with `tts-1` or `tts-1-hd`.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub instructions: Option<String>,
 
     /// The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`, `wav`, and `pcm`.
     #[serde(skip_serializing_if = "Option::is_none")]
